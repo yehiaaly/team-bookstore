@@ -1,0 +1,13 @@
+/* Design Tokens for Team Books */
+
+:root {
+  /* Colors */
+  --color-primary: orange;
+  --color-secondary: amber;
+  --color-neutral: stone;
+
+  /* Typography */
+  --font-heading: "Playfair Display", sans-serif;
+  --font-body: "Source Sans 3", sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+}

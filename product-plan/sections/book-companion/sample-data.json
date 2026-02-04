@@ -1,0 +1,35 @@
+{
+  "book": {
+    "id": "bk-001",
+    "title": "Moby Dick; or, The Whale",
+    "subtitle": "The Arion Press Edition",
+    "price": 125.0,
+    "rating": 4.9,
+    "coverUrl": "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1200",
+    "textureUrl": "https://images.unsplash.com/photo-1544256718-3bcf237f3974?auto=format&fit=crop&q=80&w=1200",
+    "authors": [{ "name": "Herman Melville" }],
+    "publisher": "Arion Press",
+    "year": 1979,
+    "description": "A typographic masterpiece. The definitive edition of the American sublime, bound in a deep ocean blue that feels like the Atlantic itself.",
+    "curatorLetter": {
+      "heading": "Dear Reader,",
+      "body": "We chose this edition not just for its rarity, but for its weight. When you hold this Arion Press edition, you feel the heft of the Pequod itself. The deep blue goatskin binding is cool to the touch, reminiscent of the Atlantic depths. It is not merely a story of a whale; it is a companion for your own voyages into the unknown. It demands patience, but offers a friendship that is vast, deep, and eternal.",
+      "signature": "Evelyn, Head Curator",
+      "date": "October 14, 2025"
+    },
+    "personality": {
+      "duration": 95,
+      "focus": 90,
+      "environment": 85,
+      "density": 80
+    },
+    "physicalSpecs": {
+      "binding": "Full Blue Goatskin",
+      "paper": "Mohawk Superfine",
+      "dimensions": "10 x 15 inches",
+      "weight": "4.2 lbs",
+      "pages": 600
+    },
+    "isRare": true
+  }
+}

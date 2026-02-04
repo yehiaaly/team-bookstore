@@ -1,0 +1,136 @@
+export const initialCollections = [
+  { id: "col-1", name: "Curator's Choice", slug: "curators-choice" },
+  { id: "col-2", name: "The Vault", slug: "the-vault" },
+  { id: "col-3", name: "The Collection", slug: "the-collection" },
+];
+
+export const initialBooks = [
+  {
+    id: "bk-001",
+    title: "Moby Dick; or, The Whale",
+    subtitle: "The Arion Press Edition",
+    price: 125.0,
+    rating: 4.9,
+    coverUrl:
+      "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600",
+    authors: [{ name: "Herman Melville" }],
+    publisher: "Arion Press",
+    binding: "Full Blue Goatskin",
+    categories: ["Classic", "Adventure", "Philosophy"],
+    collectionId: "col-1",
+    curatorNote:
+      "A typographic masterpiece. The definitive edition of the American sublime, bound in a deep ocean blue that feels like the Atlantic itself.",
+    isRare: true,
+  },
+  {
+    id: "bk-002",
+    title: "Pride and Prejudice",
+    price: 45.0,
+    rating: 5.0,
+    coverUrl:
+      "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600",
+    authors: [{ name: "Jane Austen" }],
+    publisher: "Penguin Clothbound",
+    binding: "Embossed Cloth",
+    categories: ["Romance", "Classic", "Satire"],
+    collectionId: "col-3",
+    curatorNote:
+      "The wit is as sharp as ever, but this clothbound edition brings a tactile warmth to the shelf that paperbacks simply cannot match.",
+    isRare: false,
+  },
+  {
+    id: "bk-003",
+    title: "The Great Gatsby",
+    subtitle: "First Edition Facsimile",
+    price: 850.0,
+    rating: 4.8,
+    coverUrl:
+      "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=600",
+    authors: [{ name: "F. Scott Fitzgerald" }],
+    publisher: "Scribner's",
+    binding: "Original Dust Jacket Art",
+    categories: ["Modern Classic", "Tragedy"],
+    collectionId: "col-2",
+    curatorNote: null,
+    isRare: true,
+  },
+  {
+    id: "bk-004",
+    title: "Frankenstein",
+    price: 35.0,
+    rating: 4.7,
+    coverUrl:
+      "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=600",
+    authors: [{ name: "Mary Shelley" }],
+    publisher: "Folio Society",
+    binding: "Illustrated Hardcover",
+    categories: ["Gothic", "Sci-Fi", "Classic"],
+    collectionId: "col-1",
+    curatorNote:
+      "Hauntingly beautiful illustrations. A companion for the stormy nights of the soul.",
+    isRare: false,
+  },
+  {
+    id: "bk-005",
+    title: "The Brothers Karamazov",
+    price: 55.0,
+    rating: 4.9,
+    coverUrl:
+      "https://images.unsplash.com/photo-1629196914168-3a9644338cfc?auto=format&fit=crop&q=80&w=600",
+    authors: [{ name: "Fyodor Dostoevsky" }],
+    publisher: "Everyman's Library",
+    binding: "Cloth with Dust Jacket",
+    categories: ["Russian Literature", "Philosophy", "Classic"],
+    collectionId: "col-3",
+    curatorNote: null,
+    isRare: false,
+  },
+  {
+    id: "bk-006",
+    title: "In Search of Lost Time",
+    subtitle: "Volume 1: Swann's Way",
+    price: 120.0,
+    rating: 4.6,
+    coverUrl:
+      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=600",
+    authors: [{ name: "Marcel Proust" }],
+    publisher: "Gallimard (Pleiade)",
+    binding: "Leather",
+    categories: ["Modern Classic", "French Literature"],
+    collectionId: "col-2",
+    curatorNote:
+      "A distinct voice that demands patience and rewards it with a lifetime of memory. The leather binding smells of old tea and madeleines.",
+    isRare: true,
+  },
+  {
+    id: "bk-007",
+    title: "1984",
+    price: 40.0,
+    rating: 4.8,
+    coverUrl:
+      "https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?auto=format&fit=crop&q=80&w=600",
+    authors: [{ name: "George Orwell" }],
+    publisher: "Secker & Warburg",
+    binding: "Red Cloth",
+    categories: ["Dystopian", "Sci-Fi", "Classic"],
+    collectionId: "col-3",
+    curatorNote: null,
+    isRare: false,
+  },
+  {
+    id: "bk-008",
+    title: "Jane Eyre",
+    price: 38.0,
+    rating: 4.9,
+    coverUrl:
+      "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=600",
+    authors: [{ name: "Charlotte Brontë" }],
+    publisher: "Vintage Classics",
+    binding: "Floral Cloth",
+    categories: ["Gothic", "Romance", "Classic"],
+    collectionId: "col-1",
+    curatorNote:
+      "A quiet strength resides in these pages. The floral cloth binding is deceptively delicate, hiding the fiery spirit within.",
+    isRare: false,
+  },
+];
