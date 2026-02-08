@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getBookById } from "@/lib/data/books";
+import { getAllBooks, getBookById } from "@/lib/data/books";
 import { BookCompanionClient } from "./client";
 import PageTransition from "@/components/ui/PageTransition";
 
@@ -7,6 +7,13 @@ interface PageProps {
   params: Promise<{
     id: string;
   }>;
+}
+
+export async function generateStaticParams() {
+  const books = await getAllBooks();
+  return books.map((book) => ({
+    id: book.id,
+  }));
 }
 
 export default async function BookPage({ params }: PageProps) {

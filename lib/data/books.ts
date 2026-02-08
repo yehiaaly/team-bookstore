@@ -109,6 +109,7 @@ export const SAMPLE_BOOKS: BookDetail[] = [
       pages: 218,
     },
     isRare: true,
+    curatorNote: "Handle the dust jacket with extreme care.",
   },
   {
     id: "bk-004",
@@ -209,6 +210,7 @@ export const SAMPLE_BOOKS: BookDetail[] = [
       pages: 450,
     },
     isRare: true,
+    curatorNote: "Includes a map of Combray.",
   },
   {
     id: "bk-007",
@@ -277,6 +279,12 @@ export const SAMPLE_BOOKS: BookDetail[] = [
     isRare: false,
   },
 ];
+
+export async function getAllBooks(): Promise<BookDetail[]> {
+  // Simulate network delay
+  await new Promise((resolve) => setTimeout(resolve, 500));
+  return SAMPLE_BOOKS;
+}
 
 export async function getBookById(id: string): Promise<BookDetail | null> {
   // Simulate network delay
