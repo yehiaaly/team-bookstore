@@ -2,7 +2,6 @@ import type { Book, Author } from "@/components/library/types";
 import { ReceiptText, BookOpen, Star, Heart, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import { motion } from "framer-motion";
 
 interface BookCardProps {
   book: Book;
@@ -18,12 +17,8 @@ export function BookCard({
   onAddToWishlist,
 }: BookCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
-      whileHover={{ y: -5 }}
-      className="group relative flex flex-col overflow-hidden rounded-xl border border-stone-100 bg-white p-4 transition-shadow duration-300 hover:shadow-xl dark:border-stone-800 dark:bg-stone-900"
+    <div
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-stone-100 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-stone-800 dark:bg-stone-900 animate-in fade-in zoom-in-95 duration-500"
     >
       {/* Cover Image */}
       <div className="relative aspect-2/3 w-full overflow-hidden rounded-lg bg-stone-200 shadow-sm dark:bg-stone-800">
@@ -59,7 +54,7 @@ export function BookCard({
         />
         {/* Hover Overlay Actions */}
         <div className="absolute inset-0 flex items-center justify-center gap-3 bg-stone-900/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <div className="transition-transform duration-200 hover:scale-105 active:scale-95">
             <Button
               onClick={() => onExploreCompanion?.(book.id)}
               variant="secondary"
@@ -69,8 +64,8 @@ export function BookCard({
               <BookOpen className="mr-2 h-4 w-4" />
               Explore
             </Button>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          </div>
+          <div className="transition-transform duration-200 hover:scale-110 active:scale-90">
             <Button
               onClick={() => onAddToWishlist?.(book.id)}
               size="sm"
@@ -79,8 +74,8 @@ export function BookCard({
             >
               <Heart className="h-4 w-4" aria-hidden="true" />
             </Button>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+          </div>
+          <div className="transition-transform duration-200 hover:scale-110 active:scale-90">
             <Button
               onClick={() => onAddToCounter?.(book.id)}
               size="sm"
@@ -93,7 +88,7 @@ export function BookCard({
                 aria-hidden="true"
               />
             </Button>
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -140,6 +135,6 @@ export function BookCard({
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

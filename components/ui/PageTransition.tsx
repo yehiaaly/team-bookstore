@@ -1,8 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { fadeInUp } from "@/lib/animations";
 import { ReactNode } from "react";
+import { cn } from "@/lib/utils";
 
 interface PageTransitionProps {
   children: ReactNode;
@@ -14,14 +13,8 @@ export default function PageTransition({
   className = "",
 }: PageTransitionProps) {
   return (
-    <motion.div
-      initial="initial"
-      animate="animate"
-      exit="exit"
-      variants={fadeInUp}
-      className={className}
-    >
+    <div className={cn("animate-in fade-in slide-in-from-bottom-4 duration-500", className)}>
       {children}
-    </motion.div>
+    </div>
   );
 }
