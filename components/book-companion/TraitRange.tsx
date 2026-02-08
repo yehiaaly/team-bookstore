@@ -1,5 +1,6 @@
 import React from "react";
 
+// TraitRange component
 interface TraitRangeProps {
   labelLeft: string;
   labelRight: string;

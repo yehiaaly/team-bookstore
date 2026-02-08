@@ -40,6 +40,7 @@ export interface BookDetail {
   personality: Personality;
   physicalSpecs: PhysicalSpecs;
   isRare: boolean;
+  curatorNote?: string | null;
 }
 
 export interface BookCompanionProps {

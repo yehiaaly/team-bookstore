@@ -2,44 +2,42 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type {
-  TheLibraryProps,
-  Book,
-  Collection,
-  Author,
-} from "@/components/library/types";
+import type { TheLibraryProps, Book, Author } from "@/components/library/types";
 import { BookCard } from "./BookCard";
-import { Search, ChevronDown } from "lucide-react";
+import { Search, ChevronDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import Image from "next/image";
 
 export function TheLibrary({
   books,
-  collections,
   onAddToCounter,
+  onAddToWishlist,
   onExploreCompanion,
-  onSelectCollection,
   onSearch,
 }: TheLibraryProps) {
-  const [activeTab, setActiveTab] = useState(collections[0]?.id);
   const [searchQuery, setSearchQuery] = useState("");
+  const [filters, setFilters] = useState({
+    topPicks: false,
+    rareFinds: false,
+  });
 
   const filteredBooks = books.filter((book: Book) => {
-    const matchesTab = book.collectionId === activeTab;
     const matchesSearch =
+      !searchQuery ||
       book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       book.authors.some((a: Author) =>
         a.name.toLowerCase().includes(searchQuery.toLowerCase()),
       );
 
-    return searchQuery ? matchesSearch : matchesTab;
+    const matchesTopPick = !filters.topPicks || book.isCuratorsChoice;
+    const matchesRare = !filters.rareFinds || book.isRare;
+
+    return matchesSearch && matchesTopPick && matchesRare;
   });
 
-  const handleTabChange = (id: string) => {
-    setActiveTab(id);
-    onSelectCollection?.(id);
-    setSearchQuery("");
+  const toggleFilter = (key: keyof typeof filters) => {
+    setFilters((prev) => ({ ...prev, [key]: !prev[key] }));
   };
 
   const router = useRouter();
@@ -92,7 +90,7 @@ export function TheLibrary({
                 .getElementById("library-content")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="font-heading mx-auto mt-8 flex items-center gap-2 rounded-full bg-orange-700/90 px-8 py-3 text-lg font-medium text-white shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:bg-orange-700"
+            className="font-heading mx-auto mt-8 flex cursor-pointer items-center gap-2 rounded-full bg-orange-700/90 px-8 py-3 text-lg font-medium text-white shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:bg-orange-700"
           >
             Explore The Library
             <ChevronDown className="h-4 w-4 animate-pulse" />
@@ -104,47 +102,76 @@ export function TheLibrary({
 
       <section
         id="library-content"
-        className="relative z-20 mx-auto min-h-screen w-full max-w-7xl scroll-mt-32 px-4 py-20 md:px-8"
+        className="relative z-20 mx-auto mt-50 min-h-screen w-full max-w-7xl scroll-mt-32 px-4 py-20 md:px-8"
       >
-        {/* Search Bar */}
-
-        <div className="relative mx-auto mb-24 max-w-xl">
-          <div className="relative">
+        {/* Search & Filters */}
+        <div className="mx-auto mb-12 flex max-w-4xl flex-col items-center gap-6">
+          {/* Search Bar */}
+          <div className="relative w-full max-w-xl">
             <input
               type="text"
               placeholder="Search by title, author, or interest..."
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
-
                 onSearch?.(e.target.value);
               }}
               className="font-body w-full rounded-full border border-stone-200 bg-white px-6 py-3 pl-14 text-base text-stone-900 shadow-sm transition-shadow placeholder:text-stone-400 hover:shadow-md focus:ring-1 focus:ring-orange-500/50 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-100"
             />
-
             <Search className="absolute top-1/2 left-5 h-5 w-5 -translate-y-1/2 text-stone-400 transition-colors" />
           </div>
-        </div>
 
-        {/* Collections Tabs */}
-        {!searchQuery && (
-          <div className="mb-12 flex flex-wrap items-center justify-center gap-4">
-            {collections.map((collection: Collection) => (
-              <button
-                key={collection.id}
-                onClick={() => handleTabChange(collection.id)}
+          {/* Filters */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <button
+              onClick={() => toggleFilter("topPicks")}
+              className={cn(
+                "group flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300",
+                filters.topPicks
+                  ? "border-amber-400 bg-amber-50 text-amber-900 dark:bg-amber-900/20 dark:text-amber-100"
+                  : "border-stone-200 bg-transparent text-stone-500 hover:border-amber-300 hover:text-amber-700 dark:border-stone-800 dark:text-stone-400 dark:hover:text-amber-400",
+              )}
+            >
+              <div
                 className={cn(
-                  "font-heading rounded-full border px-6 py-2 text-lg font-medium transition-all duration-300",
-                  activeTab === collection.id
-                    ? "scale-105 transform border-stone-900 bg-stone-900 text-stone-50 shadow-md dark:border-stone-100 dark:bg-stone-100 dark:text-stone-900"
-                    : "border-stone-200 bg-transparent text-stone-500 hover:border-orange-300 hover:text-orange-600 dark:border-stone-800 dark:text-stone-400 dark:hover:text-orange-400",
+                  "flex h-4 w-4 items-center justify-center rounded-full border transition-colors",
+                  filters.topPicks
+                    ? "border-amber-500 bg-amber-500"
+                    : "border-stone-300 group-hover:border-amber-400",
                 )}
               >
-                {collection.name}
-              </button>
-            ))}
+                {filters.topPicks && (
+                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                )}
+              </div>
+              Top Picks
+            </button>
+
+            <button
+              onClick={() => toggleFilter("rareFinds")}
+              className={cn(
+                "group flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300",
+                filters.rareFinds
+                  ? "border-indigo-400 bg-indigo-50 text-indigo-900 dark:bg-indigo-900/20 dark:text-indigo-100"
+                  : "border-stone-200 bg-transparent text-stone-500 hover:border-indigo-300 hover:text-indigo-700 dark:border-stone-800 dark:text-stone-400 dark:hover:text-indigo-400",
+              )}
+            >
+              <div
+                className={cn(
+                  "flex h-4 w-4 items-center justify-center rounded-full border transition-colors",
+                  filters.rareFinds
+                    ? "border-indigo-500 bg-indigo-500"
+                    : "border-stone-300 group-hover:border-indigo-400",
+                )}
+              >
+                {filters.rareFinds && (
+                  <Check className="h-3 w-3 text-white" strokeWidth={3} />
+                )}
+              </div>
+              Rare Finds
+            </button>
           </div>
-        )}
+        </div>
 
         {/* Books Grid */}
         {filteredBooks.length > 0 ? (
@@ -154,6 +181,7 @@ export function TheLibrary({
                 key={book.id}
                 book={book}
                 onAddToCounter={onAddToCounter}
+                onAddToWishlist={onAddToWishlist}
                 onExploreCompanion={handleExplore}
               />
             ))}

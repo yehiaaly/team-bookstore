@@ -1,0 +1,58 @@
+
+> next-shadcn-template@0.1.0 lint
+> eslint
+
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\app\about\page.tsx
+  2:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\app\book\[id]\client.tsx
+  23:24  warning  'id' is defined but never used  @typescript-eslint/no-unused-vars
+  33:25  warning  'id' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\components\shell\FavoritesMenu.tsx
+  7:3  warning  'DropdownMenuItem' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\components\ui\input.tsx
+  5:18  error  An interface declaring no members is equivalent to its supertype  @typescript-eslint/no-empty-object-type
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\contexts\CartContext.tsx
+  60:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\contexts\CartContext.tsx:60:5
+  58 |   // We handled initial load in useState lazy initializer, so we just set loaded true
+  59 |   useEffect(() => {
+> 60 |     setIsLoaded(true);
+     |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  61 |   }, []);
+  62 |
+  63 |   // Save to local storage on change  react-hooks/set-state-in-effect
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\prettier.config.js
+  2:1  warning  Assign object to a variable before exporting as module default  import/no-anonymous-default-export
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\product-plan\sections\book-companion\components\BookCompanion.tsx
+  36:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  84:35  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  84:61  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\product-plan\sections\the-counter\components\StackItem.tsx
+  14:9  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\product-plan\sections\the-counter\components\TheCounter.tsx
+  5:10  warning  'ArrowLeft' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yehia\Desktop\Projects\team-bookstore\product-plan\sections\the-library\components\BookCard.tsx
+  25:9   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  84:26  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  87:19  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  87:38  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+
+Γ£û 16 problems (7 errors, 9 warnings)
+

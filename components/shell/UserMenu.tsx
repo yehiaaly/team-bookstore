@@ -1,5 +1,5 @@
 import React from "react";
-import { LogOut, User as UserIcon, Settings } from "lucide-react";
+import { LogOut, Settings } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 interface UserMenuProps {
   user?: { name: string; avatarUrl?: string };
@@ -22,8 +23,9 @@ export function UserMenu({ user, onLogout }: UserMenuProps) {
       <Button
         variant="ghost"
         className="font-heading rounded-full dark:text-stone-300 dark:hover:text-stone-100"
+        asChild
       >
-        Sign In
+        <Link href="/sign-in">Sign In</Link>
       </Button>
     );
   }
@@ -63,13 +65,15 @@ export function UserMenu({ user, onLogout }: UserMenuProps) {
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator className="dark:bg-stone-800" />
-        <DropdownMenuItem className="font-body cursor-pointer dark:text-stone-300 dark:focus:bg-stone-800 dark:focus:text-stone-100">
-          <UserIcon className="mr-2 h-4 w-4" />
-          <span>Profile</span>
-        </DropdownMenuItem>
-        <DropdownMenuItem className="font-body cursor-pointer dark:text-stone-300 dark:focus:bg-stone-800 dark:focus:text-stone-100">
-          <Settings className="mr-2 h-4 w-4" />
-          <span>Settings</span>
+
+        <DropdownMenuItem
+          className="font-body cursor-pointer dark:text-stone-300 dark:focus:bg-stone-800 dark:focus:text-stone-100"
+          asChild
+        >
+          <Link href="/settings">
+            <Settings className="mr-2 h-4 w-4" />
+            <span>Settings</span>
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator className="dark:bg-stone-800" />
         <DropdownMenuItem

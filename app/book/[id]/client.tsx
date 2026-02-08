@@ -3,6 +3,9 @@
 import { BookCompanion } from "@/components/book-companion";
 import { BookDetail } from "@/types/book";
 import { useRouter } from "next/navigation";
+import { useFavorites } from "@/contexts/FavoritesContext";
+import { useCart } from "@/lib/hooks/useCart";
+import { toast } from "sonner";
 
 interface BookCompanionClientProps {
   book: BookDetail;
@@ -10,18 +13,37 @@ interface BookCompanionClientProps {
 
 export function BookCompanionClient({ book }: BookCompanionClientProps) {
   const router = useRouter();
+  const { addFavorite, isFavorite } = useFavorites();
+  const { addItem } = useCart();
 
   return (
     <BookCompanion
       book={book}
       onBack={() => router.push("/library")}
       onAddToCounter={(id) => {
-        console.log("Add to counter", id);
-        alert(`Added ${book.title} to counter!`);
+        addItem({
+          id: book.id,
+          title: book.title,
+          author: book.authors[0]?.name || "Unknown Author",
+          price: book.price,
+          coverUrl: book.coverUrl,
+        });
+        toast.success(`Added "${book.title}" to your counter!`);
       }}
       onAddToWishlist={(id) => {
-        console.log("Add to wishlist", id);
-        alert(`Added ${book.title} to wishlist!`);
+        if (isFavorite(book.id)) {
+          toast.info(`"${book.title}" is already in your favorites.`);
+          return;
+        }
+        addFavorite({
+          id: book.id,
+          title: book.title,
+          author: book.authors[0]?.name || "Unknown Author",
+          coverUrl: book.coverUrl,
+          price: book.price,
+          addedAt: new Date().toISOString(),
+        });
+        toast.success(`Added "${book.title}" to your favorites!`);
       }}
     />
   );

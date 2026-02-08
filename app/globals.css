@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Permanent+Marker&display=swap");
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
@@ -10,6 +10,7 @@
   --font-heading: "Playfair Display", serif;
   --font-body: "Source Sans 3", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
+  --font-handwriting: "Permanent Marker", cursive;
 
   /* Extend Colors if needed, but standard colors work. 
      We map standard names to specific usages in the code? 

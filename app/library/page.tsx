@@ -2,11 +2,10 @@
 
 import React from "react";
 import { TheLibrary } from "@/components/library/TheLibrary";
-import {
-  initialBooks,
-  initialCollections,
-} from "@/components/library/sample-data";
+import PageTransition from "@/components/ui/PageTransition";
+import { initialBooks } from "@/components/library/sample-data";
 import { useCart } from "@/lib/hooks/useCart";
+import { useFavorites } from "@/contexts/FavoritesContext";
 import { Book } from "@/components/library/types";
 import { BookSummary } from "@/types/counter";
 import { toast } from "sonner";
@@ -26,23 +25,44 @@ function mapBookToSummary(book: Book): BookSummary {
 
 export default function LibraryPage() {
   const { addItem } = useCart();
+  const { addFavorite, isFavorite } = useFavorites();
 
   const handleAddToCounter = (bookId: string) => {
     const book = initialBooks.find((b) => b.id === bookId);
     if (book) {
       addItem(mapBookToSummary(book));
       // Show toast notification
-      // Using a simple alert for now if no toast provider, but assuming toast works or will be added
-      console.log(`Added ${book.title} to counter`);
       toast.success(`Added "${book.title}" to your cart!`);
     }
   };
 
+  const handleAddToWishlist = (bookId: string) => {
+    const book = initialBooks.find((b) => b.id === bookId);
+    if (book) {
+      if (isFavorite(bookId)) {
+        toast.info(`"${book.title}" is already in your favorites.`);
+        return;
+      }
+
+      addFavorite({
+        id: book.id,
+        title: book.title,
+        author: book.authors[0]?.name || "Unknown Author",
+        coverUrl: book.coverUrl,
+        price: book.price,
+        addedAt: new Date().toISOString(),
+      });
+      toast.success(`Added "${book.title}" to your favorites!`);
+    }
+  };
+
   return (
-    <TheLibrary
-      books={initialBooks}
-      collections={initialCollections}
-      onAddToCounter={handleAddToCounter}
-    />
+    <PageTransition>
+      <TheLibrary
+        books={initialBooks}
+        onAddToCounter={handleAddToCounter}
+        onAddToWishlist={handleAddToWishlist}
+      />
+    </PageTransition>
   );
 }

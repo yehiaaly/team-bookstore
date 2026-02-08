@@ -3,10 +3,14 @@
 import React from "react";
 import { AppShell } from "./AppShell";
 import { useAuth } from "@/contexts/AuthContext";
+import { useFavorites } from "@/contexts/FavoritesContext";
+import { useCart } from "@/lib/hooks/useCart";
 import { useRouter, usePathname } from "next/navigation";
 
 export function ShellWrapper({ children }: { children: React.ReactNode }) {
   const { user, logout } = useAuth();
+  const { favorites } = useFavorites();
+  const { order } = useCart();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -30,6 +34,8 @@ export function ShellWrapper({ children }: { children: React.ReactNode }) {
             }
           : undefined
       }
+      favoritesCount={favorites.length}
+      cartCount={order.items.length}
       onNavigate={(href) => router.push(href)}
       onLogout={logout}
     >

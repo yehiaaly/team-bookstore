@@ -40,6 +40,7 @@ export const SAMPLE_BOOKS: BookDetail[] = [
       pages: 600,
     },
     isRare: true,
+    curatorNote: "Keep out of direct sunlight to preserve the blue goatskin.",
   },
   {
     id: "bk-002",

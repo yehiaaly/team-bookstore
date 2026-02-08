@@ -1,7 +1,9 @@
 import React from "react";
 import { MainNav } from "./MainNav";
 import { UserMenu } from "./UserMenu";
+import { FavoritesMenu } from "./FavoritesMenu";
 import { ReceiptText, Heart } from "lucide-react";
+import { Logo } from "../ui/Logo";
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -9,6 +11,8 @@ interface AppShellProps {
   user?: { name: string; avatarUrl?: string };
   onNavigate?: (href: string) => void;
   onLogout?: () => void;
+  favoritesCount?: number;
+  cartCount?: number;
 }
 
 export function AppShell({
@@ -17,6 +21,8 @@ export function AppShell({
   user,
   onNavigate,
   onLogout,
+  favoritesCount = 0,
+  cartCount = 0,
 }: AppShellProps) {
   return (
     <div className="font-body min-h-screen bg-stone-50 text-stone-900 selection:bg-orange-100 dark:bg-stone-950 dark:text-stone-100 dark:selection:bg-orange-900">
@@ -25,10 +31,10 @@ export function AppShell({
         <header className="relative flex w-full max-w-5xl items-center justify-between rounded-full border border-stone-200/50 bg-white/80 px-5 py-2 shadow-sm backdrop-blur-md transition-colors duration-300 dark:border-stone-800/50 dark:bg-stone-900/80">
           {/* Logo / Brand (Left) */}
           <div
-            className="font-heading z-10 cursor-pointer text-lg font-bold tracking-tight text-orange-600 dark:text-orange-500"
+            className="z-10 cursor-pointer transition-transform select-none active:scale-95"
             onClick={() => onNavigate?.("/")}
           >
-            Team Books.
+            <Logo />
           </div>
 
           {/* Centered Navigation Links (Desktop) - Absolutely Positioned */}
@@ -39,15 +45,29 @@ export function AppShell({
           {/* Right Side: Actions & User */}
           <div className="z-10 flex items-center gap-1 md:gap-2">
             {/* ThemeToggle removed for now */}
-            <button className="rounded-full p-2 text-stone-600 transition-colors hover:bg-stone-100 hover:text-orange-600 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-orange-400">
-              <Heart className="h-5 w-5" />
-            </button>
+
+            <FavoritesMenu>
+              <button className="relative cursor-pointer rounded-full p-2 text-stone-600 transition-colors hover:bg-stone-100 hover:text-orange-600 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-orange-400">
+                <Heart className="h-5 w-5" />
+                {favoritesCount > 0 && (
+                  <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-stone-900">
+                    {favoritesCount}
+                  </span>
+                )}
+              </button>
+            </FavoritesMenu>
+
             <button
               onClick={() => onNavigate?.("/counter")}
-              className="relative rounded-full p-2 text-stone-600 transition-colors hover:bg-stone-100 hover:text-orange-600 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-orange-400"
+              className="relative cursor-pointer rounded-full p-2 text-stone-600 transition-colors hover:bg-stone-100 hover:text-orange-600 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-orange-400"
               title="The Counter"
             >
               <ReceiptText className="h-5 w-5" />
+              {cartCount > 0 && (
+                <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-orange-600 text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-stone-900">
+                  {cartCount}
+                </span>
+              )}
             </button>
             <div className="hidden h-6 w-px bg-stone-300 md:block dark:bg-stone-700"></div>
             <UserMenu user={user} onLogout={onLogout} />

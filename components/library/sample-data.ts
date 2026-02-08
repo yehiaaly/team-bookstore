@@ -1,9 +1,3 @@
-export const initialCollections = [
-  { id: "col-1", name: "Curator's Choice", slug: "curators-choice" },
-  { id: "col-2", name: "The Vault", slug: "the-vault" },
-  { id: "col-3", name: "The Collection", slug: "the-collection" },
-];
-
 export const initialBooks = [
   {
     id: "bk-001",
@@ -11,8 +5,7 @@ export const initialBooks = [
     subtitle: "The Arion Press Edition",
     price: 125.0,
     rating: 4.9,
-    coverUrl:
-      "https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=600",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780142437247-L.jpg",
     authors: [{ name: "Herman Melville" }],
     publisher: "Arion Press",
     binding: "Full Blue Goatskin",
@@ -21,14 +14,14 @@ export const initialBooks = [
     curatorNote:
       "A typographic masterpiece. The definitive edition of the American sublime, bound in a deep ocean blue that feels like the Atlantic itself.",
     isRare: true,
+    isCuratorsChoice: true,
   },
   {
     id: "bk-002",
     title: "Pride and Prejudice",
     price: 45.0,
     rating: 5.0,
-    coverUrl:
-      "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&q=80&w=600",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780141439518-L.jpg",
     authors: [{ name: "Jane Austen" }],
     publisher: "Penguin Clothbound",
     binding: "Embossed Cloth",
@@ -44,8 +37,7 @@ export const initialBooks = [
     subtitle: "First Edition Facsimile",
     price: 850.0,
     rating: 4.8,
-    coverUrl:
-      "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=600",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg",
     authors: [{ name: "F. Scott Fitzgerald" }],
     publisher: "Scribner's",
     binding: "Original Dust Jacket Art",
@@ -53,14 +45,14 @@ export const initialBooks = [
     collectionId: "col-2",
     curatorNote: null,
     isRare: true,
+    isCuratorsChoice: true,
   },
   {
     id: "bk-004",
     title: "Frankenstein",
     price: 35.0,
     rating: 4.7,
-    coverUrl:
-      "https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&q=80&w=600",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780141439471-L.jpg",
     authors: [{ name: "Mary Shelley" }],
     publisher: "Folio Society",
     binding: "Illustrated Hardcover",
@@ -75,8 +67,7 @@ export const initialBooks = [
     title: "The Brothers Karamazov",
     price: 55.0,
     rating: 4.9,
-    coverUrl:
-      "https://images.unsplash.com/photo-1629196914168-3a9644338cfc?auto=format&fit=crop&q=80&w=600",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780374528379-L.jpg",
     authors: [{ name: "Fyodor Dostoevsky" }],
     publisher: "Everyman's Library",
     binding: "Cloth with Dust Jacket",
@@ -91,8 +82,7 @@ export const initialBooks = [
     subtitle: "Volume 1: Swann's Way",
     price: 120.0,
     rating: 4.6,
-    coverUrl:
-      "https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&q=80&w=600",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780141180311-L.jpg",
     authors: [{ name: "Marcel Proust" }],
     publisher: "Gallimard (Pleiade)",
     binding: "Leather",
@@ -101,14 +91,14 @@ export const initialBooks = [
     curatorNote:
       "A distinct voice that demands patience and rewards it with a lifetime of memory. The leather binding smells of old tea and madeleines.",
     isRare: true,
+    isCuratorsChoice: false,
   },
   {
     id: "bk-007",
     title: "1984",
     price: 40.0,
     rating: 4.8,
-    coverUrl:
-      "https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?auto=format&fit=crop&q=80&w=600",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780451524935-L.jpg",
     authors: [{ name: "George Orwell" }],
     publisher: "Secker & Warburg",
     binding: "Red Cloth",
@@ -122,8 +112,7 @@ export const initialBooks = [
     title: "Jane Eyre",
     price: 38.0,
     rating: 4.9,
-    coverUrl:
-      "https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&q=80&w=600",
+    coverUrl: "https://covers.openlibrary.org/b/isbn/9780141040387-L.jpg",
     authors: [{ name: "Charlotte Brontë" }],
     publisher: "Vintage Classics",
     binding: "Floral Cloth",
@@ -132,5 +121,6 @@ export const initialBooks = [
     curatorNote:
       "A quiet strength resides in these pages. The floral cloth binding is deceptively delicate, hiding the fiery spirit within.",
     isRare: false,
+    isCuratorsChoice: true,
   },
 ];

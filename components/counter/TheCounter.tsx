@@ -30,7 +30,7 @@ export function TheCounter({
   return (
     <div className="font-body flex min-h-screen items-center justify-center bg-stone-200 p-4 text-stone-900 selection:bg-orange-100 lg:p-8 dark:bg-stone-950 dark:text-stone-100 dark:selection:bg-orange-900">
       {/* The "Receipt/Ledger" Container */}
-      <div className="relative flex w-full max-w-4xl flex-col overflow-hidden rounded-sm bg-white shadow-2xl lg:flex-row dark:bg-stone-900">
+      <div className="relative my-25 flex w-full max-w-4xl flex-col overflow-hidden rounded-sm bg-white shadow-2xl lg:flex-row dark:bg-stone-900">
         {/* Left Column: The Stack (Cart Summary) */}
         <div className="flex w-full flex-col border-r border-stone-200 bg-stone-50 p-6 lg:w-5/12 lg:p-8 dark:border-stone-800 dark:bg-stone-950">
           <div className="mb-6 flex items-center justify-between">

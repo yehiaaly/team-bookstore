@@ -1,28 +1,55 @@
 import type { Book, Author } from "@/components/library/types";
-import { ReceiptText, BookOpen, Star } from "lucide-react";
+import { ReceiptText, BookOpen, Star, Heart, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 interface BookCardProps {
   book: Book;
   onAddToCounter?: (id: string) => void;
   onExploreCompanion?: (id: string) => void;
+  onAddToWishlist?: (id: string) => void;
 }
 
 export function BookCard({
   book,
   onAddToCounter,
   onExploreCompanion,
+  onAddToWishlist,
 }: BookCardProps) {
   return (
-    <div className="group relative flex flex-col overflow-hidden rounded-lg border border-stone-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-stone-800 dark:bg-stone-900">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4 }}
+      whileHover={{ y: -5 }}
+      className="group relative flex flex-col overflow-hidden rounded-xl border border-stone-100 bg-white p-4 transition-shadow duration-300 hover:shadow-xl dark:border-stone-800 dark:bg-stone-900"
+    >
       {/* Cover Image */}
-      <div className="relative aspect-2/3 w-full overflow-hidden bg-stone-200 dark:bg-stone-800">
+      <div className="relative aspect-2/3 w-full overflow-hidden rounded-lg bg-stone-200 shadow-sm dark:bg-stone-800">
         {book.isRare && (
-          <div className="font-body absolute top-3 left-3 z-10 rounded-full border border-amber-200 bg-amber-100 px-2 py-1 text-xs font-bold tracking-wider text-amber-800 uppercase">
-            Rare Edition
+          <div className="font-body absolute top-2 left-2 z-10 flex items-center gap-1.5 rounded-sm bg-stone-900/90 px-2 py-1 text-[10px] font-medium tracking-wider text-stone-100 uppercase shadow-lg backdrop-blur-md">
+            <div className="h-1.5 w-1.5 rotate-45 bg-amber-200" />
+            Rare
           </div>
         )}
+
+        {book.isCuratorsChoice && (
+          <div className="absolute top-0 right-3 z-10">
+            <div className="font-heading relative flex h-16 w-12 items-center justify-center overflow-hidden bg-amber-400 text-xs leading-none font-bold text-amber-950 shadow-lg after:absolute after:-bottom-2.5 after:left-0 after:h-0 after:w-0 after:border-t-10 after:border-r-24 after:border-l-24 after:border-t-amber-400 after:border-r-transparent after:border-l-transparent">
+              <div
+                className="absolute inset-0 opacity-20 mix-blend-overlay"
+                style={{
+                  backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='1'/%3E%3C/svg%3E")`,
+                }}
+              />
+              <span className="relative z-10 -rotate-90 whitespace-nowrap">
+                Top Pick
+              </span>
+            </div>
+          </div>
+        )}
+
         <Image
           src={book.coverUrl}
           alt={book.title}
@@ -32,27 +59,41 @@ export function BookCard({
         />
         {/* Hover Overlay Actions */}
         <div className="absolute inset-0 flex items-center justify-center gap-3 bg-stone-900/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">
-          <Button
-            onClick={() => onExploreCompanion?.(book.id)}
-            variant="secondary"
-            size="sm"
-            className="font-body rounded-full bg-white/90 text-stone-900 hover:bg-white"
-          >
-            <BookOpen className="mr-2 h-4 w-4" />
-            Explore
-          </Button>
-          <Button
-            onClick={() => onAddToCounter?.(book.id)}
-            size="sm"
-            className="font-body rounded-full border-none bg-orange-600 text-white hover:bg-orange-700"
-          >
-            <ReceiptText className="h-4 w-4" />
-          </Button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button
+              onClick={() => onExploreCompanion?.(book.id)}
+              variant="secondary"
+              size="sm"
+              className="font-body cursor-pointer rounded-full bg-white/90 text-stone-900 hover:bg-white"
+            >
+              <BookOpen className="mr-2 h-4 w-4" />
+              Explore
+            </Button>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <Button
+              onClick={() => onAddToWishlist?.(book.id)}
+              size="sm"
+              className="font-body cursor-pointer rounded-full bg-white/90 text-red-500 hover:bg-white hover:text-red-600"
+            >
+              <Heart className="h-4 w-4" />
+            </Button>
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <Button
+              onClick={() => onAddToCounter?.(book.id)}
+              size="sm"
+              className="font-body relative cursor-pointer rounded-full border-none bg-orange-600 text-white hover:bg-orange-700"
+            >
+              <ReceiptText className="h-4 w-4" />
+              <Plus className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-white text-orange-600 shadow-sm" />
+            </Button>
+          </motion.div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="flex flex-1 flex-col p-5">
+      <div className="flex flex-1 flex-col pt-4">
         {/* Rating */}
         <div className="mb-2 flex items-center gap-1">
           <Star className="h-3 w-3 fill-amber-400 text-amber-400" />
@@ -94,6 +135,6 @@ export function BookCard({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { getBookById } from "@/lib/data/books";
 import { BookCompanionClient } from "./client";
+import PageTransition from "@/components/ui/PageTransition";
 
 interface PageProps {
   params: Promise<{
@@ -16,5 +17,9 @@ export default async function BookPage({ params }: PageProps) {
     notFound();
   }
 
-  return <BookCompanionClient book={book} />;
+  return (
+    <PageTransition>
+      <BookCompanionClient book={book} />
+    </PageTransition>
+  );
 }

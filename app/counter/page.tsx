@@ -6,6 +6,7 @@ import { useCart } from "@/lib/hooks/useCart";
 import { CustomerDetails } from "@/types/counter";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/contexts/AuthContext";
+import PageTransition from "@/components/ui/PageTransition";
 
 export default function CounterPage() {
   const { order, removeItem, toggleGift, clearCart } = useCart();
@@ -30,7 +31,7 @@ export default function CounterPage() {
     : undefined;
 
   return (
-    <div className="min-h-screen">
+    <PageTransition className="min-h-screen">
       <TheCounter
         order={order}
         onRemoveItem={removeItem}
@@ -38,6 +39,6 @@ export default function CounterPage() {
         onCompletePurchase={handleCompletePurchase}
         initialValues={initialValues}
       />
-    </div>
+    </PageTransition>
   );
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { BookCompanionProps } from "@/types/book";
 import { ArrowLeft, Heart, ShoppingBag, Feather } from "lucide-react";
-import { TraitRange } from "./TraitRange";
+import { TraitRange } from "@/components/book-companion/TraitRange";
 
 export function BookCompanion({
   book,
@@ -34,12 +34,27 @@ export function BookCompanion({
       <div className="grid min-h-screen grid-cols-1 lg:grid-cols-2">
         {/* Left: The Tangible Hero (Image) */}
         <div className="relative h-[50vh] overflow-hidden bg-stone-200 lg:sticky lg:top-0 lg:h-screen dark:bg-stone-900">
+          <div className="absolute inset-0 flex items-center justify-center p-8 lg:p-20">
+            <div className="relative aspect-2/3 w-full max-w-md overflow-hidden rounded-lg shadow-2xl">
+              <Image
+                src={book.coverUrl}
+                alt={book.title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </div>
+          </div>
+          {/* Background Blurred Texture */}
           <Image
-            src={book.textureUrl}
-            alt="Binding Texture"
+            src={book.coverUrl}
+            alt="Blur Background"
             fill
-            className="object-cover opacity-90 transition-transform duration-[20s] ease-linear hover:scale-110"
+            className="object-cover opacity-20 blur-xl"
+            aria-hidden="true"
           />
+          <div className="absolute inset-0 bg-stone-50/30 dark:bg-stone-950/30" />
+
           <div className="absolute inset-0 bg-linear-to-t from-stone-900/60 to-transparent lg:hidden" />
 
           {/* Overlay Title for Mobile */}
