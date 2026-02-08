@@ -47,8 +47,11 @@ export function AppShell({
             {/* ThemeToggle removed for now */}
 
             <FavoritesMenu>
-              <button className="relative cursor-pointer rounded-full p-2 text-stone-600 transition-colors hover:bg-stone-100 hover:text-orange-600 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-orange-400">
-                <Heart className="h-5 w-5" />
+              <button
+                aria-label="Open favorites"
+                className="relative cursor-pointer rounded-full p-2 text-stone-600 transition-colors hover:bg-stone-100 hover:text-orange-600 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-orange-400"
+              >
+                <Heart className="h-5 w-5" aria-hidden="true" />
                 {favoritesCount > 0 && (
                   <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-stone-900">
                     {favoritesCount}
@@ -59,10 +62,11 @@ export function AppShell({
 
             <button
               onClick={() => onNavigate?.("/counter")}
+              aria-label="Go to shopping counter"
               className="relative cursor-pointer rounded-full p-2 text-stone-600 transition-colors hover:bg-stone-100 hover:text-orange-600 dark:text-stone-400 dark:hover:bg-stone-800 dark:hover:text-orange-400"
               title="The Counter"
             >
-              <ReceiptText className="h-5 w-5" />
+              <ReceiptText className="h-5 w-5" aria-hidden="true" />
               {cartCount > 0 && (
                 <span className="absolute -top-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-orange-600 text-[10px] font-bold text-white shadow-sm ring-2 ring-white dark:ring-stone-900">
                   {cartCount}

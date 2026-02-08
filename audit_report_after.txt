@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audit version="0.0.33">
+<site url="http://localhost:3000" crawled="6" date="2026-02-08T17:32:37.856Z"/>
+<score overall="49" grade="F">
+ <cat name="Core SEO" score="81"/>
+ <cat name="Security" score="68"/>
+ <cat name="Accessibility" score="95"/>
+ <cat name="Images" score="76"/>
+ <cat name="Performance" score="74"/>
+ <cat name="Content" score="68"/>
+ <cat name="Legal Compliance" score="44"/>
+ <cat name="Crawlability" score="98"/>
+ <cat name="Links" score="87"/>
+ <cat name="E-E-A-T" score="94"/>
+ <cat name="Internationalization" score="100"/>
+ <cat name="Mobile" score="100"/>
+ <cat name="Social Media" score="100"/>
+ <cat name="URL Structure" score="100"/>
+</score>
+<summary passed="479" warnings="97" failed="16"/>
+<issues>
+ <category name="Crawlability" errors="0" warnings="3">
+  <rule id="crawl/canonical-chain" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/canonical-chain">
+   Page redirects before content is served; Canonical URL resolves through a redirect chain
+   Pages (1): /
+   Items (2):
+    - / (http://localhost:3000/ (307) → http://localhost:3000/library (200)) [finalUrl: http://localhost:3000/library, chain: [object Object]]
+    - / (http://localhost:3000/ (307) → http://localhost:3000/library (200)) [chain: [object Object], finalUrl: http://localhost:3000/library]
+  </rule>
+  <rule id="crawl/sitemap-coverage" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/crawl/sitemap-coverage">
+   1 sitemap URL(s) were not crawled
+   Items (1):
+    - /sign-in
+  </rule>
+ </category>
+ <category name="Core SEO" errors="6" warnings="6">
+  <rule id="core/meta-description" severity="error" status="warn" docs="https://docs.squirrelscan.com/rules/core/meta-description">
+   Description too long (179 chars, max 160); Description too short (114 chars, min 120)
+   Pages (5): /library, /, /contact, /privacy, /terms
+  </rule>
+  <rule id="core/charset" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/core/charset">
+   No charset declaration found
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+  </rule>
+  <rule id="core/title-unique" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/core/title-unique">
+   1 duplicate title(s) affecting 2 pages
+   Items (1):
+    - team bookstore – curated rare &amp; popular books collection (&quot;team bookstore – curated rare &amp; popular ...&quot; (2 pages)) [pageCount: 2] (from: /library, /)
+  </rule>
+ </category>
+ <category name="Security" errors="6" warnings="1">
+  <rule id="security/https" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/security/https">
+   Page not served over HTTPS
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+  </rule>
+  <rule id="security/csp" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/security/csp">
+   CSP allows &apos;unsafe-inline&apos; and &apos;unsafe-eval&apos;
+  </rule>
+ </category>
+ <category name="Links" errors="0" warnings="2">
+  <rule id="links/orphan-pages" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/orphan-pages">
+   5 orphan page(s) with &lt;2 incoming links
+   Items (5):
+    - /library
+    - /about
+    - /contact
+    - /privacy
+    - /terms
+  </rule>
+  <rule id="links/redirect-chains" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/links/redirect-chains">
+   1 page(s) redirect to another URL
+   Items (1):
+    - / (http://localhost:3000/ (307) → http://localhost:3000/library (200)) [targetUrl: http://localhost:3000/library, chain: [object Object]]
+  </rule>
+ </category>
+ <category name="Content" errors="0" warnings="14">
+  <rule id="content/duplicate-title" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/duplicate-title">
+   1 duplicate title(s) found across 2 pages
+   Items (1):
+    - team bookstore – curated rare &amp; popular books collection (&quot;team bookstore – curated rare &amp; popular ...&quot; (2 pages)) [pageCount: 2] (from: /library, /)
+  </rule>
+  <rule id="content/duplicate-description" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/duplicate-description">
+   1 duplicate description(s) found across 2 pages
+   Items (1):
+    - discover a handpicked collection of rare, vintage, and popul (&quot;discover a handpicked collection of rare...&quot; (2 pages)) [pageCount: 2] (from: /library, /)
+  </rule>
+  <rule id="content/heading-hierarchy" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/heading-hierarchy">
+   Skipped heading levels detected
+   Pages (2): /library, /
+   Items (1):
+    - H1 -&gt; H3
+  </rule>
+  <rule id="content/keyword-stuffing" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/keyword-stuffing">
+   1 word(s) may be overused; 2 word(s) may be overused
+   Pages (4): /library, /, /privacy, /terms
+   Items (5):
+    - friend (&quot;friend&quot; (4.2%)) [count: 8, density: 4.232804232804233]
+    - information (&quot;information&quot; (5.9%)) [count: 11, density: 5.88235294117647]
+    - your (&quot;your&quot; (5.9%)) [count: 11, density: 5.88235294117647]
+    - terms (&quot;terms&quot; (3.6%)) [count: 7, density: 3.6269430051813467]
+    - our (&quot;our&quot; (3.1%)) [count: 6, density: 3.1088082901554404]
+  </rule>
+  <rule id="content/word-count" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/content/word-count">
+   Thin content: 194 words (min 300); Thin content: 207 words (min 300); Thin content: 73 words (min 300); Thin content: 221 words (min 300); Thin content: 238 words (min 300)
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+  </rule>
+ </category>
+ <category name="Images" errors="1" warnings="3">
+  <rule id="images/image-file-size" severity="error" status="fail" docs="https://docs.squirrelscan.com/rules/images/image-file-size">
+   1 image(s) exceed 100.0 KB
+   Items (1):
+    - /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1544816155-12df9643f363%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80&amp;w=3840&amp;q=75 [sizeBytes: 941217, size: 919.2 KB, status: 200, contentType: image/jpeg] (from: /about)
+  </rule>
+  <rule id="images/dimensions" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/images/dimensions">
+   9 image(s) missing width/height (causes CLS); 2 image(s) missing width/height (causes CLS)
+   Pages (3): /library, /, /about
+  </rule>
+ </category>
+ <category name="Performance" errors="0" warnings="44">
+  <rule id="perf/lcp-hints" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lcp-hints">
+   1 potential LCP image(s) without preload
+   Pages (2): /library, /
+   Items (1):
+    - /_next/image?url=%2Fhero-bg-v2.jpg&amp;w=3840&amp;q=75
+  </rule>
+  <rule id="perf/ttfb" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/ttfb">
+   Slow server response (872ms)
+   Pages (1): /contact
+  </rule>
+  <rule id="perf/css-file-size" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/css-file-size">
+   1 CSS file(s) exceed 100.0 KB
+   Items (1):
+    - /_next/static/chunks/app_globals_71f961d1.css [sizeBytes: 105600, size: 103.1 KB, status: 200, contentType: text/css; charset=UTF-8] (from: /library, /, /about, /contact, /privacy, /terms)
+  </rule>
+  <rule id="perf/total-byte-weight" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/total-byte-weight">
+   Total tracked resources: 4373KB (heavy page)
+  </rule>
+  <rule id="perf/critical-request-chains" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/critical-request-chains">
+   2 critical request chain(s) found
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+   Items (2):
+    - CSS: /_next/static/chunks/app_globals_71f961d1.css
+    - JS: /_next/static/chunks/node_modules_next_dist_build_polyfills_polyfill-nomodule.js
+  </rule>
+  <rule id="perf/duplicate-js" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/duplicate-js">
+   2 library(s) loaded multiple times
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+   Items (4):
+    - node (12x)
+    - app (3x)
+    - node (11x)
+    - app (2x)
+  </rule>
+  <rule id="perf/lazy-above-fold" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/lazy-above-fold">
+   2 above-fold image(s) with lazy loading
+   Pages (3): /library, /, /about
+   Items (4):
+    - /_next/image?url=https%3A%2F%2Fcovers.openlibrary.org%2Fb%2Fisbn%2F9780142437247-L.jpg&amp;w=3840&amp;q=75
+    - /_next/image?url=https%3A%2F%2Fcovers.openlibrary.org%2Fb%2Fisbn%2F9780141439518-L.jpg&amp;w=3840&amp;q=75
+    - /icon.svg
+    - /_next/image?url=https%3A%2F%2Fimages.unsplash.com%2Fphoto-1544816155-12df9643f363%3Fauto%3Dformat%26fit%3Dcrop%26q%3D80&amp;w=3840&amp;q=75
+  </rule>
+  <rule id="perf/unminified-js" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/perf/unminified-js">
+   8 JavaScript file(s) appear unminified
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+   Items (5):
+    - node_modules_next_dist_compiled_react-dom_1e674e59._.js (1023.3KB, ~260.0KB savings) [reason: high newlines (1.58%), 80 comments, long function names, formatted code, excessive whitespace]
+    - node_modules_next_dist_compiled_react-server-dom-turbopack_9212ccad._.js (167.0KB, ~53.6KB savings) [reason: high newlines (1.66%), 17 comments, long function names, formatted code, excessive whitespace]
+    - node_modules_next_dist_compiled_next-devtools_index_1dd7fb59.js (796.9KB, ~722.7KB savings) [reason: 80 comments]
+    - node_modules_next_dist_compiled_a0e4c7b4._.js (141.0KB, ~60.3KB savings) [reason: high newlines (2.02%), 171 comments, long function names, formatted code, excessive whitespace]
+    - node_modules_next_dist_client_17643121._.js (606.5KB, ~292.5KB savings) [reason: high newlines (2.05%), 2715 comments, long variable names, long function names, formatted code, excessive whitespace]
+  </rule>
+  <rule id="perf/http2" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/perf/http2">
+   HTTP/2 requires HTTPS
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+  </rule>
+  <rule id="perf/source-maps" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/perf/source-maps">
+   188 potential source map(s) detected; 1 inline source map(s) found
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+   Items (11):
+    - /_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js.map (from /_next/static/chunks/node_modules_next_dist_compiled_react-dom_1e674e59._.js)
+    - /_next/static/chunks/%22 (from /_next/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_9212ccad._.js)
+    - /_next/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_9212ccad._.js.map (from /_next/static/chunks/node_modules_next_dist_compiled_react-server-dom-turbopack_9212ccad._.js)
+    - /_next/static/chunks/index.js.map (from /_next/static/chunks/node_modules_next_dist_f3530cac._.js)
+    - /_next/static/chunks/node_modules_next_dist_compiled_next-devtools_index_1dd7fb59.js.map (from /_next/static/chunks/node_modules_next_dist_compiled_next-devtools_index_1dd7fb59.js)
+    - /_next/static/chunks/helpers.js.map (from /_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js)
+    - /_next/static/chunks/runtime.js.map (from /_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js)
+    - /_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js.map (from /_next/static/chunks/node_modules_next_dist_compiled_a0e4c7b4._.js)
+    - /_next/static/chunks/asset-prefix.js.map (from /_next/static/chunks/node_modules_next_dist_client_17643121._.js)
+    - /_next/static/chunks/set-attributes-from-props.js.map (from /_next/static/chunks/node_modules_next_dist_client_17643121._.js)
+    - /_next/static/chunks/turbopack-_23a915ee._.js
+  </rule>
+ </category>
+ <category name="Accessibility" errors="3" warnings="17">
+  <rule id="a11y/color-contrast" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/color-contrast">
+   14 potential color contrast issue(s); 12 potential color contrast issue(s); 8 potential color contrast issue(s); 6 potential color contrast issue(s)
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+   Items (34):
+    - button with class &quot;font-heading rounded-full px-4...&quot; may have low contrast
+    - button with class &quot;relative cursor-pointer rounde...&quot; may have low contrast
+    - a with class &quot;inline-flex items-center justi...&quot; may have low contrast
+    - input with class &quot;font-body w-full rounded-full ...&quot; may have low contrast
+    - svg with class &quot;lucide lucide-search absolute ...&quot; may have low contrast
+    - button with class &quot;group flex items-center gap-2 ...&quot; may have low contrast
+    - div with class &quot;absolute inset-0 opacity-20 mi...&quot; may have low contrast
+    - span with class &quot;font-mono text-xs font-medium ...&quot; may have low contrast
+    - p with class &quot;font-body mb-4 text-sm text-st...&quot; may have low contrast
+    - span with class &quot;font-medium text-stone-700 dar...&quot; may have low contrast
+    - button with class &quot;font-heading rounded-full px-4...&quot; may have low contrast
+    - button with class &quot;relative cursor-pointer rounde...&quot; may have low contrast
+    - a with class &quot;inline-flex items-center justi...&quot; may have low contrast
+    - p with class &quot;text-muted-foreground mx-auto ...&quot; may have low contrast
+    - div with class &quot;text-muted-foreground space-y-...&quot; may have low contrast
+    - p with class &quot;text-muted-foreground text-lg ...&quot; may have low contrast
+    - span with class &quot;text-muted-foreground/60 font-...&quot; may have low contrast
+    - img with class &quot;object-cover opacity-20 transi...&quot; may have low contrast
+    - div with class &quot;mb-2 inline-block rounded-full...&quot; may have low contrast
+    - p with class &quot;max-w-2xl text-xl leading-rela...&quot; may have low contrast
+    - button with class &quot;font-heading rounded-full px-4...&quot; may have low contrast
+    - button with class &quot;relative cursor-pointer rounde...&quot; may have low contrast
+    - a with class &quot;inline-flex items-center justi...&quot; may have low contrast
+    - p with class &quot;mx-auto max-w-2xl text-lg text...&quot; may have low contrast
+    - p with class &quot;text-stone-600 dark:text-stone...&quot; may have low contrast
+    - p with class &quot;mx-auto max-w-2xl text-stone-7...&quot; may have low contrast
+    - White text (verify background): 1 instance(s)
+    - Very light text color: 1 instance(s)
+    - button with class &quot;font-heading rounded-full px-4...&quot; may have low contrast
+    - button with class &quot;relative cursor-pointer rounde...&quot; may have low contrast
+    - a with class &quot;inline-flex items-center justi...&quot; may have low contrast
+    - p with class &quot;mb-4 text-sm text-stone-500 da...&quot; may have low contrast
+    - White text (verify background): 1 instance(s)
+    - Very light text color: 1 instance(s)
+  </rule>
+  <rule id="a11y/landmark-one-main" severity="warning" status="fail" docs="https://docs.squirrelscan.com/rules/a11y/landmark-one-main">
+   Page has 2 main landmarks (should be 1)
+   Pages (3): /contact, /privacy, /terms
+   Items (2):
+    - main.flex-1
+    - main.mx-auto
+  </rule>
+  <rule id="a11y/heading-order" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/heading-order">
+   1 heading level skip(s) detected
+   Pages (2): /library, /
+   Items (1):
+    - H3 after H1
+  </rule>
+  <rule id="a11y/link-text" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/link-text">
+   1 link(s) with generic text
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+   Items (1):
+    - sign in
+  </rule>
+  <rule id="a11y/landmark-regions" severity="info" status="warn" docs="https://docs.squirrelscan.com/rules/a11y/landmark-regions">
+   Multiple main landmarks (2)
+   Pages (3): /contact, /privacy, /terms
+  </rule>
+ </category>
+ <category name="E-E-A-T" errors="0" warnings="1">
+  <rule id="eeat/privacy-policy" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/eeat/privacy-policy">
+   Privacy policy only linked from 0% of pages
+  </rule>
+ </category>
+ <category name="Legal Compliance" errors="0" warnings="6">
+  <rule id="legal/privacy-policy" severity="warning" status="warn" docs="https://docs.squirrelscan.com/rules/legal/privacy-policy">
+   No privacy policy link found
+   Pages (6): /library, /, /about, /contact, /privacy, /terms
+  </rule>
+ </category>
+</issues>
+</audit>
+
+

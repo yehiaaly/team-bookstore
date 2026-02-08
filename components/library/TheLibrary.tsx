@@ -91,9 +91,10 @@ export function TheLibrary({
                 ?.scrollIntoView({ behavior: "smooth" })
             }
             className="font-heading mx-auto mt-8 flex cursor-pointer items-center gap-2 rounded-full bg-orange-700/90 px-8 py-3 text-lg font-medium text-white shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:bg-orange-700"
+            aria-label="Explore The Library"
           >
             Explore The Library
-            <ChevronDown className="h-4 w-4 animate-pulse" />
+            <ChevronDown className="h-4 w-4 animate-pulse" aria-hidden="true" />
           </button>
         </div>
       </section>
@@ -116,6 +117,7 @@ export function TheLibrary({
                 setSearchQuery(e.target.value);
                 onSearch?.(e.target.value);
               }}
+              aria-label="Search books"
               className="font-body w-full rounded-full border border-stone-200 bg-white px-6 py-3 pl-14 text-base text-stone-900 shadow-sm transition-shadow placeholder:text-stone-400 hover:shadow-md focus:ring-1 focus:ring-orange-500/50 dark:border-stone-800 dark:bg-stone-900 dark:text-stone-100"
             />
             <Search className="absolute top-1/2 left-5 h-5 w-5 -translate-y-1/2 text-stone-400 transition-colors" />
@@ -125,6 +127,8 @@ export function TheLibrary({
           <div className="flex flex-wrap items-center justify-center gap-3">
             <button
               onClick={() => toggleFilter("topPicks")}
+              aria-label="Filter by Top Picks"
+              aria-pressed={filters.topPicks}
               className={cn(
                 "group flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300",
                 filters.topPicks
@@ -149,6 +153,8 @@ export function TheLibrary({
 
             <button
               onClick={() => toggleFilter("rareFinds")}
+              aria-label="Filter by Rare Finds"
+              aria-pressed={filters.rareFinds}
               className={cn(
                 "group flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300",
                 filters.rareFinds

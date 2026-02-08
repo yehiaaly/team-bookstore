@@ -1,6 +1,12 @@
+import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import PageTransition from "@/components/ui/PageTransition";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Team Bookstore, our mission to curate rare and timeless books, and the passionate team behind our literary collection.",
+};
 
 export default function AboutPage() {
   return (

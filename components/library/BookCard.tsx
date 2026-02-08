@@ -74,19 +74,24 @@ export function BookCard({
             <Button
               onClick={() => onAddToWishlist?.(book.id)}
               size="sm"
+              aria-label={`Add ${book.title} to wishlist`}
               className="font-body cursor-pointer rounded-full bg-white/90 text-red-500 hover:bg-white hover:text-red-600"
             >
-              <Heart className="h-4 w-4" />
+              <Heart className="h-4 w-4" aria-hidden="true" />
             </Button>
           </motion.div>
           <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
             <Button
               onClick={() => onAddToCounter?.(book.id)}
               size="sm"
+              aria-label={`Add ${book.title} to counter`}
               className="font-body relative cursor-pointer rounded-full border-none bg-orange-600 text-white hover:bg-orange-700"
             >
-              <ReceiptText className="h-4 w-4" />
-              <Plus className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-white text-orange-600 shadow-sm" />
+              <ReceiptText className="h-4 w-4" aria-hidden="true" />
+              <Plus
+                className="absolute -top-1 -right-1 h-3 w-3 rounded-full bg-white text-orange-600 shadow-sm"
+                aria-hidden="true"
+              />
             </Button>
           </motion.div>
         </div>
