@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📚 Team Bookstore
 
-## Getting Started
+A modern, curated digital library bookstore built with Next.js, featuring a serene interface for discovering quality books. This project emphasizes a premium user experience with smooth transitions, thoughtful typography, and a "human-curated" feel.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```carousel
+![Hero Section - Find Your Next True Companion](/preview-hero.png)
+<!-- slide -->
+![Counter Page - The Stack & Guestbook](/preview-counter.png)
+<!-- slide -->
+![About Page - The Typesetter's Manifesto](/preview-about.png)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Live Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Check out the live demo here: [Come back soon!](https://team-bookstore.vercel.app/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ✨ Features
 
-## Learn More
+- **Curated Collections**: Browse "Top Picks" and "Rare Finds" selected by humans, not algorithms.
+- **Smooth Animations**: Seamless page transitions and micro-interactions powered by Framer Motion.
+- **Wishlist & Cart**: Interactive "Add to Counter" (Cart) and "Add to Favorites" functionality.
+- **Responsive Design**: A fully responsive layout that looks great on mobile, tablet, and desktop.
+- **Dark Mode**: A carefully crafted dark theme for comfortable night-time browsing.
+- **Search & Filtering**: Instant search by title or author, with dynamic filtering capabilities.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Built With
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **[React 19](https://react.dev/)**: The library for web and native user interfaces.
+- **[Next.js 15](https://nextjs.org/)**: The React Framework for the Web.
+- **[Tailwind CSS](https://tailwindcss.com/)**: Rapidly build modern websites without ever leaving your HTML.
+- **[Framer Motion](https://www.framer.com/motion/)**: A production-ready motion library for React.
+- **[Shadcn UI](https://ui.shadcn.com/)**: Beautifully designed components accessible and customizable.
+- **[Lucide React](https://lucide.dev/)**: Beautiful & consistent icon toolkit.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🏁 Getting Started
 
-## Deploy on Vercel
+Follow these steps to get the project running locally.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Prerequisites
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Node.js 18+ installed
+- npm, pnpm, or yarn
+
+### Installation
+
+1.  **Clone the repository**
+
+    ```bash
+    git clone https://github.com/yourusername/team-bookstore.git
+    cd team-bookstore
+    ```
+
+2.  **Install dependencies**
+
+    ```bash
+    npm install
+    # or
+    pnpm install
+    # or
+    yarn install
+    ```
+
+3.  **Run the development server**
+
+    ```bash
+    npm run dev
+    # or
+    pnpm dev
+    # or
+    yarn dev
+    ```
+
+4.  **Open your browser**
+    Navigate to [http://localhost:3000](http://localhost:3000) to see the application.
+
+## 📖 Documentation
+
+### Directory Structure
+
+```text
+src/
+├── app/                  # Next.js App Router pages and layouts
+│   ├── library/          # Library page
+│   ├── book/             # Book details
+│   ├── settings/         # User settings
+│   └── ...
+├── components/           # React components
+│   ├── ui/               # Reusable UI components (buttons, inputs)
+│   ├── library/          # Library-specific components (BookCard, TheLibrary)
+│   └── ...
+├── lib/                  # Utilities and hooks
+└── public/               # Static assets
+```
+
+### Key Components
+
+#### `TheLibrary`
+
+The main container for the library view. Handles search state, filtering, and displaying the book grid.
+
+```tsx
+import { TheLibrary } from "@/components/library/TheLibrary";
+import { initialBooks } from "@/components/library/sample-data";
+
+export default function LibraryPage() {
+  return (
+    <TheLibrary
+      books={initialBooks}
+      onAddToCounter={(id) => console.log("Added to cart:", id)}
+      onAddToWishlist={(id) => console.log("Added to wishlist:", id)}
+    />
+  );
+}
+```
+
+#### `BookCard`
+
+Displays individual book information with interactive actions.
+
+| Prop              | Type                   | Description                                                 |
+| :---------------- | :--------------------- | :---------------------------------------------------------- |
+| `book`            | `Book`                 | Object containing book details (title, author, cover, etc.) |
+| `onAddToCounter`  | `(id: string) => void` | Callback when "Add to Counter" is clicked                   |
+| `onAddToWishlist` | `(id: string) => void` | Callback when heart icon is clicked                         |
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
