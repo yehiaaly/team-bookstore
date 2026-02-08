@@ -1,5 +1,7 @@
 import { MetadataRoute } from "next";
 
+export const runtime = "edge";
+
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 export default function robots(): MetadataRoute.Robots {
