@@ -2,7 +2,9 @@ import { MetadataRoute } from "next";
 
 export const runtime = "edge";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL ||
+  "https://8272f0a9.team-bookstore.pages.dev";
 
 export default function robots(): MetadataRoute.Robots {
   return {

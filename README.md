@@ -2,17 +2,18 @@
 
 A modern, curated digital library bookstore built with Next.js, featuring a serene interface for discovering quality books. This project emphasizes a premium user experience with smooth transitions, thoughtful typography, and a "human-curated" feel.
 
-```carousel
 ![Hero Section - Find Your Next True Companion](/preview-hero.png)
-<!-- slide -->
+_(A serene interface for discovering quality books)_
+
 ![Counter Page - The Stack & Guestbook](/preview-counter.png)
-<!-- slide -->
+_(Minimalist cart and guestbook)_
+
 ![About Page - The Typesetter's Manifesto](/preview-about.png)
-```
+_(Our mission and manifesto)_
 
 ## 🚀 Live Demo
 
-Check out the live demo here: [Come back soon!](https://team-bookstore.vercel.app/)
+Check out the live demo here: [Live Demo](https://8272f0a9.team-bookstore.pages.dev/library)
 
 ## ✨ Features
 

@@ -8,15 +8,17 @@ import React from "react";
 import { ShellWrapper } from "@/components/shell/ShellWrapper";
 import { Toaster } from "sonner";
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL ||
+  "https://8272f0a9.team-bookstore.pages.dev";
 
 export const metadata: Metadata = {
   title: {
-    default: "Team Bookstore – Curated Rare & Popular Books Collection",
-    template: "%s | Team Bookstore – Curated Books",
+    default: "Team Bookstore – Curated Rare & Popular Books",
+    template: "%s | Team Bookstore",
   },
   description:
-    "Discover a handpicked collection of rare, vintage, and popular books at Team Bookstore. Browse curated literary gems, timeless classics, and hidden treasures for every book lover.",
+    "Discover a handpicked collection of rare, vintage, and popular books. Browse curated literary gems, timeless classics, and hidden treasures.",
   keywords: [
     "bookstore",
     "rare books",
@@ -28,9 +30,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Team Bookstore" }],
   openGraph: {
-    title: "Team Bookstore – Curated Rare & Popular Books Collection",
+    title: "Team Bookstore – Curated Rare & Popular Books",
     description:
-      "Discover a handpicked collection of rare, vintage, and popular books at Team Bookstore. Browse curated literary gems, timeless classics, and hidden treasures.",
+      "Discover a handpicked collection of rare, vintage, and popular books. Browse curated literary gems, timeless classics, and hidden treasures.",
     url: baseUrl,
     siteName: "Team Bookstore",
     images: [
@@ -38,7 +40,7 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Team Bookstore – Curated Rare & Popular Books Collection",
+        alt: "Team Bookstore Collection",
       },
     ],
     locale: "en_US",
@@ -46,14 +48,19 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Team Bookstore – Curated Rare & Popular Books Collection",
+    title: "Team Bookstore – Curated Rare & Popular Books",
     description:
-      "Discover a handpicked collection of rare, vintage, and popular books at Team Bookstore. Browse curated literary gems and timeless classics.",
+      "Discover a handpicked collection of rare, vintage, and popular books. Browse curated literary gems and timeless classics.",
     creator: "@teambookstore",
   },
   metadataBase: new URL(baseUrl),
   alternates: {
-    canonical: baseUrl,
+    canonical: "./",
+  },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   },
 };
 

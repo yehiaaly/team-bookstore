@@ -8,6 +8,7 @@ interface BookCardProps {
   onAddToCounter?: (id: string) => void;
   onExploreCompanion?: (id: string) => void;
   onAddToWishlist?: (id: string) => void;
+  priority?: boolean;
 }
 
 export function BookCard({
@@ -15,11 +16,10 @@ export function BookCard({
   onAddToCounter,
   onExploreCompanion,
   onAddToWishlist,
+  priority = false,
 }: BookCardProps) {
   return (
-    <div
-      className="group relative flex flex-col overflow-hidden rounded-xl border border-stone-100 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-stone-800 dark:bg-stone-900 animate-in fade-in zoom-in-95 duration-500"
-    >
+    <div className="group animate-in fade-in zoom-in-95 relative flex flex-col overflow-hidden rounded-xl border border-stone-100 bg-white p-4 transition-all duration-300 duration-500 hover:-translate-y-1 hover:shadow-xl dark:border-stone-800 dark:bg-stone-900">
       {/* Cover Image */}
       <div className="relative aspect-2/3 w-full overflow-hidden rounded-lg bg-stone-200 shadow-sm dark:bg-stone-800">
         {book.isRare && (
@@ -51,6 +51,7 @@ export function BookCard({
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover transition-transform duration-700 group-hover:scale-105"
+          priority={priority}
         />
         {/* Hover Overlay Actions */}
         <div className="absolute inset-0 flex items-center justify-center gap-3 bg-stone-900/40 opacity-0 backdrop-blur-[2px] transition-opacity duration-300 group-hover:opacity-100">

@@ -35,6 +35,10 @@ const nextConfig: NextConfig = {
             value:
               "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://images.unsplash.com https://covers.openlibrary.org; font-src 'self'; connect-src 'self' https://covers.openlibrary.org;",
           },
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
+          },
         ],
       },
     ];

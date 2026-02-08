@@ -60,6 +60,7 @@ export function TheLibrary({
             src="/hero-bg-v2.jpg"
             alt="Library ambience"
             fill
+            sizes="100vw"
             className="object-cover opacity-90 transition-opacity duration-700"
             priority
           />
@@ -103,8 +104,10 @@ export function TheLibrary({
 
       <section
         id="library-content"
+        aria-label="Book Collection"
         className="relative z-20 mx-auto mt-50 min-h-screen w-full max-w-7xl scroll-mt-32 px-4 py-20 md:px-8"
       >
+        <h2 className="sr-only">Our Collection</h2>
         {/* Search & Filters */}
         <div className="mx-auto mb-12 flex max-w-4xl flex-col items-center gap-6">
           {/* Search Bar */}
@@ -182,10 +185,11 @@ export function TheLibrary({
         {/* Books Grid */}
         {filteredBooks.length > 0 ? (
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {filteredBooks.map((book: Book) => (
+            {filteredBooks.map((book: Book, index: number) => (
               <BookCard
                 key={book.id}
                 book={book}
+                priority={index < 4}
                 onAddToCounter={onAddToCounter}
                 onAddToWishlist={onAddToWishlist}
                 onExploreCompanion={handleExplore}

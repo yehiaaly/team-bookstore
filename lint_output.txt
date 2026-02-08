@@ -3,9 +3,6 @@
 > eslint
 
 
-C:\Users\yehia\Desktop\Projects\team-bookstore\app\about\page.tsx
-  2:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
-
 C:\Users\yehia\Desktop\Projects\team-bookstore\app\book\[id]\client.tsx
   23:24  warning  'id' is defined but never used  @typescript-eslint/no-unused-vars
   33:25  warning  'id' is defined but never used  @typescript-eslint/no-unused-vars
@@ -54,5 +51,5 @@ C:\Users\yehia\Desktop\Projects\team-bookstore\product-plan\sections\the-library
   87:19  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
   87:38  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
 
-Γ£û 16 problems (7 errors, 9 warnings)
+✖ 15 problems (7 errors, 8 warnings)
 
