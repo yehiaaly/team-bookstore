@@ -8,6 +8,8 @@ import React from "react";
 import { ShellWrapper } from "@/components/shell/ShellWrapper";
 import { Toaster } from "sonner";
 
+export const runtime = "edge";
+
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
