@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { X } from "lucide-react";
+import { OrderItem } from "@/types/counter";
 
 interface StackItemProps {
   item: OrderItem;
