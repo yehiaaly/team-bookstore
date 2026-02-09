@@ -2,14 +2,14 @@
 
 A modern, curated digital library bookstore built with Next.js, featuring a serene interface for discovering quality books. This project emphasizes a premium user experience with smooth transitions, thoughtful typography, and a "human-curated" feel.
 
-![Hero Section - Find Your Next True Companion](/preview-hero.png)
+![Hero Section - Find Your Next True Companion](public/preview-hero.png)
 _(A serene interface for discovering quality books)_
 
-![Counter Page - The Stack & Guestbook](/preview-counter.png)
-_(Minimalist cart and guestbook)_
-
-![About Page - The Typesetter's Manifesto](/preview-about.png)
+![About Page - The Typesetter's Manifesto](public/preview-about.png)
 _(Our mission and manifesto)_
+
+![Counter Page - The Stack & Guestbook](public/preview-counter.png)
+_(Minimalist cart and guestbook)_
 
 ## 🚀 Live Demo
 
@@ -79,7 +79,7 @@ Follow these steps to get the project running locally.
 ### Directory Structure
 
 ```text
-src/
+.
 ├── app/                  # Next.js App Router pages and layouts
 │   ├── library/          # Library page
 │   ├── book/             # Book details

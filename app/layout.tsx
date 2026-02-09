@@ -1,4 +1,10 @@
 import type { Metadata } from "next";
+import {
+  Playfair_Display,
+  Source_Sans_3,
+  IBM_Plex_Mono,
+  Permanent_Marker,
+} from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { FavoritesProvider } from "@/contexts/FavoritesContext";
@@ -58,11 +64,37 @@ export const metadata: Metadata = {
     canonical: "./",
   },
   icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: "/public/icon.svg",
+    shortcut: "/public/icon.svg",
+    apple: "/public/icon.svg",
   },
 };
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-heading",
+  display: "swap",
+});
+
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const ibmPlexMono = IBM_Plex_Mono({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const permanentMarker = Permanent_Marker({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-handwriting",
+  display: "swap",
+});
 
 export default function RootLayout({
   children,
@@ -71,7 +103,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased" suppressHydrationWarning>
+      <body
+        className={`${sourceSans.variable} ${playfair.variable} ${ibmPlexMono.variable} ${permanentMarker.variable} antialiased`}
+        suppressHydrationWarning
+      >
         <AuthProvider>
           <FavoritesProvider>
             <CartProvider>
